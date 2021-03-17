@@ -6,7 +6,14 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        Hello from Facelets
-    </h:body>
-</html>
+        <h:form>
 
+            <!-- action um retorno em String -> caminho para redirecionar -->
+            <h:commandButton value="exibir" action="#{controller.editar()}"/>
+            <h:commandButton value="listar dependentes" action="banda/list"/>
+            <h:commandButton value="HTML 5" action="exemplo-html5"/>
+            <h:commandButton value="template" action="template"/>
+        </h:form>
+    </h:body>
+    
+</html>
