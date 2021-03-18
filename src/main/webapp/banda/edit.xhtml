@@ -6,12 +6,25 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 template="../template.xhtml">
+
     <ui:define name="centro">
         <h2 class="header center orange-text">  Cadastro de Bandas </h2>
         <h:form>
             <h:messages layout="list"/>
-           
+            <h:outputLabel for="nome" value="Nome" />
+            <h:inputText value="#{controller.banda.nomeFantasia}" id="nome"/>
+
+            <h:outputLabel for="local" value="Local de Origem" />
+            <h:inputText value="#{controller.banda.localDeOrigem}" id="local"/>
+
+
+
+
+            <h:commandButton id="comando" styleClass="btn" value="adicionar" action="#{controller.SalvarBanda()}"/>
+
+            <h:commandLink id="comando-link" value="lista" action="list" immediate="true"/>
         </h:form>
     </ui:define>
+
 </ui:composition>
 

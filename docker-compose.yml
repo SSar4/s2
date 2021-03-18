@@ -1,0 +1,16 @@
+version: '3'
+services:
+ postgres:
+  build: ./banco
+  image: s2/banco
+  container_name: bancodac
+  ports: 
+    - "5433:5432"
+ web:
+  build: .
+  image: dac/app
+  container_name: app
+  ports: 
+    - "8082:8080" 
+  links: 
+    - "postgres:host-banco"   

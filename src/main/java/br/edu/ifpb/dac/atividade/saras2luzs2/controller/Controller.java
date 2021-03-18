@@ -39,8 +39,8 @@ public class Controller implements Serializable{
 		return "banda/edit";
 	}
 	public List<Banda> getBandas() {
-		return Collections.EMPTY_LIST;
-		//return bandaServico.lista();
+		//return Collections.EMPTY_LIST;
+		return bandaServico.lista();
 	}
 	public Integrante getIntegrante() {
 		return integrante;
