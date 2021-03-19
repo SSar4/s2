@@ -16,7 +16,9 @@ public class BandaServico {
 	public void Add(Banda b) {
 		bandas.addBanda(b);
 	}
-	
+	public void removeBanda(int i) {
+		bandas.removeBanda(i);
+	}
 	public List<Banda> lista(){
 		return bandas.todas();
 	}

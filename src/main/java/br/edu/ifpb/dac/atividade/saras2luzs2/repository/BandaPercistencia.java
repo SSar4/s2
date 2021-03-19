@@ -18,6 +18,18 @@ public class BandaPercistencia {
 		// TODO Auto-generated constructor stub
 	}
 
+	public void removeBanda(int id) {
+		String SQL = "DELETE FROM banda id where id=?";
+		con = Conexao.abrirConexao();
+		try {
+			PreparedStatement stm = con.prepareStatement(SQL);
+			stm.setInt(1, id);
+			stm.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+	
 	public void addBanda(Banda b) {
 		String SQL = "INSERT INTO banda (localDeOrigem,nomeFantasia) VALUES (?,?)";
 		con = Conexao.abrirConexao();
