@@ -35,6 +35,10 @@ public class Controller implements Serializable{
 		this.banda = new Banda();
 		return "list";
 	}
+	public String removeBanda(int i) {
+		bandaServico.removeBanda(i);
+		return "list";
+	}
 	public String editar() {
 		return "banda/edit";
 	}
