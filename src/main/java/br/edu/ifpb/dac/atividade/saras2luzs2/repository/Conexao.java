@@ -12,7 +12,7 @@ public class Conexao {
 	public static Connection abrirConexao() {
 		try {
 			Class.forName("org.postgresql.Driver");
-			return DriverManager.getConnection("jdbc:postgresql://localhost:5432/docker\", \"postgres\", \"123456");
+			return DriverManager.getConnection("jdbc:postgresql://host-banco/docker", "postgres", "123456");
 
 		} catch (Exception e) {
 			System.out.print(e);

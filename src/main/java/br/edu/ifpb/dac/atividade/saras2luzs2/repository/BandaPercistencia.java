@@ -36,7 +36,7 @@ public class BandaPercistencia {
 		con = Conexao.abrirConexao();
 		List<Banda> b = new ArrayList<>();
 		try {
-			String sql = "SELECT * FROM banda;";
+			String sql = "SELECT * FROM banda";
 			PreparedStatement statement = con.prepareStatement(sql);
 			ResultSet resut = statement.executeQuery();
 			while (resut.next()) {
@@ -56,18 +56,18 @@ public class BandaPercistencia {
 	}
 
 	private Banda criarBanda(ResultSet result) {
-		Banda banda = null;
+		Banda b = new Banda();
 
 		try {
-			Banda b = new Banda();
+
 			b.setId(result.getInt("id"));
 			b.setNomeFantasia(result.getString("nomeFantasia"));
-			b.setLocalDeOrigem(result.getString("localOrigem"));
+			b.setLocalDeOrigem(result.getString("localdeorigem"));
 
 		} catch (SQLException ex) {
 			System.out.print(ex);
 		}
 
-		return banda;
+		return b;
 	}
 }
