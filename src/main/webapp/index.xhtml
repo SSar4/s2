@@ -8,10 +8,12 @@
     <h:body>
         <h:form>
 
-            <!-- action um retorno em String -> caminho para redirecionar -->
+          
 
-            <h:commandButton value="exibir banda" action="#{controller.editar()}"/>
-            <h:commandButton value="listar dependentes" action="banda/list"/>
+            <h:commandButton value="salvar banda" action="#{controller.redirect()}"/>
+            <h:commandButton value="salvar Integrantes" action="#{controllerIntegrante.redirect()}"/>
+            <h:commandButton value="listar Bandas" action="banda/list"/>
+            <h:commandButton value="listar Integrantes" action="integrante/list"/>
             <h:commandButton value="HTML 5" action="exemplo-html5"/>
             <h:commandButton value="template" action="template"/>
         </h:form>

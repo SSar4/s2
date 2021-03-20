@@ -7,9 +7,7 @@ import java.util.List;
 
 public class Banda implements Serializable{
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private int id;
 	private String localDeOrigem;
@@ -63,5 +61,11 @@ public class Banda implements Serializable{
 	public void setIntegrantes(List<Integrante> integrantes) {
 		this.integrantes = integrantes;
 	}
+
+    @Override
+    public String toString() {
+        return "Banda{" + "id=" + id + ", localDeOrigem=" + localDeOrigem + ", nomeFantasia=" + nomeFantasia + ", integrantes=" + integrantes + '}';
+    }
+         
 
 }

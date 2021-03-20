@@ -22,6 +22,10 @@
                 <h:column>
                     <h:commandButton value="x" action="#{controller.removeBanda(banda.id)}" class="btn"/>
                 </h:column>
+                <h:column>
+                    <h:commandButton value="editar" action="#{controller.editar(banda)}" class="btn"/>
+                </h:column>
+             
             </h:dataTable>
         </h:form>
     </ui:define>

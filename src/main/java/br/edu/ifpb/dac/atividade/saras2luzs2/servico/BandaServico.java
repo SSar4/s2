@@ -14,12 +14,17 @@ public class BandaServico {
 	}
 
 	public void Add(Banda b) {
+            if(b.getId()<1){
 		bandas.addBanda(b);
+            }
+            else bandas.atualizar(b);
 	}
-	public void removeBanda(int i) {
-		bandas.removeBanda(i);
-	}
+	
 	public List<Banda> lista(){
 		return bandas.todas();
 	}
+
+    public void removeBanda(int id) {
+        bandas.removeBanda(id);
+    }
 }

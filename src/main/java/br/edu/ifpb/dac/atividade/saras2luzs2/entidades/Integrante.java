@@ -65,6 +65,12 @@ public class Integrante {
 	public void setCpf(CPF cpf) {
 		this.cpf = cpf;
 	}
+
+    @Override
+    public String toString() {
+        return "Integrante{" + "id=" + id + ", nome=" + nome + ", dataDeNascimento=" + dataDeNascimento + ", cpf=" + cpf + '}';
+    }
+                
 	
 
 }

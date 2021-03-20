@@ -20,8 +20,6 @@
             <artifactId>postgresql</artifactId>
             <version>9.4.1212.jre7</version>
         </dependency>
-
-        
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
@@ -31,15 +29,15 @@
     </dependencies>
 
     <build>
-        <finalName>atidade-docker</finalName>
+        <finalName>dac</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
                 <configuration>
-                    <source>8</source>
-                    <target>8</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                     <compilerArguments>
                         <endorseddirs>${endorsed.dir}</endorseddirs>
                     </compilerArguments>
