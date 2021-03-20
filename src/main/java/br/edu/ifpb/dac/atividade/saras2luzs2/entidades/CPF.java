@@ -1,14 +1,14 @@
 package br.edu.ifpb.dac.atividade.saras2luzs2.entidades;
 
-public class Cpf {
+public class CPF {
 
 	private static final int TAMANHO = 11;
     private String numero;
 
-    public Cpf() {
+    public CPF() {
     }
 
-    public Cpf(String numero) {
+    public CPF(String numero) {
         this.numero = numero;
     }
 
