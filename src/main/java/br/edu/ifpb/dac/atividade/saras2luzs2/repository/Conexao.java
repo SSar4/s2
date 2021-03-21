@@ -13,9 +13,9 @@ public class Conexao {
 		try {
 			Class.forName("org.postgresql.Driver");
 			return DriverManager.getConnection("jdbc:postgresql://host-banco/docker",
-                                "postgres",
-                               "123456");
-//			return DriverManager.getConnection("jdbc:postgresql://localhost:5434/docker","jose","12345");
+                               "postgres",
+                              "123456");
+		//return DriverManager.getConnection("jdbc:postgresql://localhost:5432/docker","","");
 
 		} catch (Exception e) {
 			System.out.print(e);

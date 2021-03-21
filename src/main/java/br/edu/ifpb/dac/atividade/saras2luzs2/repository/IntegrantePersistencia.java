@@ -67,7 +67,7 @@ public class IntegrantePersistencia {
             this.con = Conexao.abrirConexao();
             String consulta = "SELECT * FROM integrante WHERE cpf ilike '" + cpf + "%' ";
             PreparedStatement statement = con.prepareStatement(consulta);
-            //  statement.setString(1, cpf);
+            // statement.setString(1, cpf);
             ResultSet result = statement.executeQuery();
             while (result.next()) {
                 integrante.add(criarIntegrante(result));

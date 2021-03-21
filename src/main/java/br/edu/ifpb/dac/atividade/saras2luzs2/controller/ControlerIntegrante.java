@@ -10,6 +10,7 @@ import br.edu.ifpb.dac.atividade.saras2luzs2.entidades.Integrante;
 import br.edu.ifpb.dac.atividade.saras2luzs2.servico.IntegranteServico;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
@@ -23,11 +24,22 @@ public class ControlerIntegrante implements Serializable {
     private IntegranteServico is;
     private String datanasc;
     private String CPF;
+    private List<Integrante> listIntegrante;
     
 
     public ControlerIntegrante() {
         integrante = new Integrante();
+        listIntegrante = new ArrayList<>();
         is = new IntegranteServico();
+    }
+    public String buscarCpf() {
+    	listIntegrante = is.localizarintegranteCPF(CPF);
+    	if(listIntegrante.size()==0) {
+    		listIntegrante = new ArrayList<Integrante>();
+    		return null;
+    	}
+    	System.out.println(listIntegrante.get(0)+" s2s2s2s2s22ss22s");
+    	return null;
     }
      public String redirect() {
       
@@ -80,4 +92,10 @@ public class ControlerIntegrante implements Serializable {
         this.integrante = integrante;
         return "edit";
     }
+	public List<Integrante> getListIntegrante() {
+		return listIntegrante;
+	}
+	public void setListIntegrante(List<Integrante> listIntegrante) {
+		this.listIntegrante = listIntegrante;
+	}
 }
