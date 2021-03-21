@@ -3,6 +3,7 @@ package br.edu.ifpb.dac.atividade.saras2luzs2.controller;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
+import java.util.ArrayList;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
@@ -21,6 +22,8 @@ public class Controller implements Serializable {
     private Banda banda;
     private Integrante integrante;
     private BandaServico bandaServico;
+    private String origem;
+    private List<Banda> band = new ArrayList<>();
 
     public Controller() {
         this.setBanda(new Banda());
@@ -55,6 +58,16 @@ public class Controller implements Serializable {
         return v;
     }
 
+    public List<Banda> buscarOrigem(){
+
+        List<Banda> band = bandaServico.localizarLocalDeOrigem(origem);
+        if(band.size() == 0){
+            band = new ArrayList<>();
+            
+        }
+        return band;
+    }
+
     public Integrante getIntegrante() {
         return integrante;
     }
@@ -69,6 +82,22 @@ public class Controller implements Serializable {
 
     public void setBanda(Banda banda) {
         this.banda = banda;
+    }
+
+    public String getOrigem() {
+        return origem;
+    }
+
+    public void setOrigem(String origem) {
+        this.origem = origem;
+    }
+
+    public List<Banda> getBand() {
+        return band;
+    }
+
+    public void setBand(List<Banda> band) {
+        this.band = band;
     }
 
 }

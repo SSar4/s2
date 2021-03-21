@@ -19,7 +19,7 @@ public class BandaPercistencia {
     }
 
     public void addBanda(Banda b) {
-        String SQL = "INSERT INTO banda (localDeOrigem,nomeFantasia) VALUES (?,?)";
+        String SQL = "INSERT INTO banda (localdeorigem,nomefantasia) VALUES (?,?)";
         con = Conexao.abrirConexao();
         try {
             PreparedStatement stm = con.prepareStatement(SQL);
@@ -88,6 +88,41 @@ public class BandaPercistencia {
     }
 
     public void atualizar(Banda b) {
+        String SQL = "UPDATE FROM banda  SET localdeorigem=?,nomefantasia=? WHERE id = ?";
+        con = Conexao.abrirConexao();
+        try {
+            PreparedStatement stm = con.prepareStatement(SQL);
+            stm.setString(1, b.getLocalDeOrigem());
+            stm.setString(2, b.getNomeFantasia());
+            stm.setInt(3, b.getId());
 
+            stm.executeUpdate();
+        } catch (Exception e) {
+            
+        }
+    }
+
+    public List<Banda> localizarLocalDeOrigem(String origem) {
+        List<Banda> bandas = new ArrayList<>();
+        try {
+            this.con = Conexao.abrirConexao();
+            String consulta = "SELECT * FROM banda WHERE localdeorigem ilike '" + origem + "%' ";
+            PreparedStatement statement = con.prepareStatement(consulta);
+            // statement.setString(1, cpf);
+            ResultSet result = statement.executeQuery();
+            while (result.next()) {
+                bandas.add(criarBanda(result));
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        } finally {
+            Conexao.CloseConecxao(con);
+        }
+        if (bandas.size() > 0) {
+            return Collections.unmodifiableList(bandas);
+        } else {
+            return Collections.EMPTY_LIST;
+        }
     }
 }

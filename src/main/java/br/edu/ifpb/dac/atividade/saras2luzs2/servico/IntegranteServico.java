@@ -32,6 +32,8 @@ public class IntegranteServico {
     public List<Integrante> localizarintegranteCPF(String cpf) {
         return integrantePersistencia.localizarintegranteCPF(cpf);
     }
+
+   
 	
 
 }

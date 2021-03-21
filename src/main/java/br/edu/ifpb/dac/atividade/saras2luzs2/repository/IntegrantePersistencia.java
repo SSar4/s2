@@ -128,8 +128,23 @@ public class IntegrantePersistencia {
         return integrante;
     }
 
-    public void atualizar(Integrante integrante) {
-        return;
+    public void atualizar(Integrante i) {
+
+        String SQL = "UPDATE FROM integrante SET nome=?, dataDeNascimento=?, cpf=? WHERE id = ?";
+        con = Conexao.abrirConexao();
+        try {
+            PreparedStatement stm = con.prepareStatement(SQL);
+            stm.setString(1, i.getNome());
+            stm.setDate(2, Date.valueOf(i.getDataDeNascimento()));
+            stm.setString(3, i.getCpf().formatado());
+            stm.setInt(4, i.getId());
+
+            stm.executeUpdate();
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
     }
+
+    
 
 }

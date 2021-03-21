@@ -26,5 +26,9 @@ public class BandaServico {
 
     public void removeBanda(int id) {
         bandas.removeBanda(id);
-    }
+	}
+	
+	public List<Banda> localizarLocalDeOrigem(String origem){
+		return	bandas.localizarLocalDeOrigem(origem);
+	}
 }
