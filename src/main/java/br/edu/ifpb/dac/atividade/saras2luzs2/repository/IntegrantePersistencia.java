@@ -37,10 +37,8 @@ public class IntegrantePersistencia {
     }
 
     public Integrante buscarPorId(int id) {
-        StringBuffer sql = new StringBuffer("SELECT * FROM integrante");
-        sql.append("WHERE id =");
-        sql.append(id);
-        return todas(sql.toString()).get(0);
+        String sql = "SELECT * FROM integrante WHERE id = "+ id ;
+        return todas(sql).get(0);
     }
 
     public List<Integrante> todas() {

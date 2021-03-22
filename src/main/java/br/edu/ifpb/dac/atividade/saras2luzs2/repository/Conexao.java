@@ -13,11 +13,11 @@ public class Conexao {
 	public static Connection abrirConexao() {
 		try {
 			Class.forName("org.postgresql.Driver");
-			return DriverManager.getConnection("jdbc:postgresql://host-banco/docker",
-                               "postgres",
-                              "123456");
-//		return DriverManager.getConnection("jdbc:postgresql://localhost:5434/docker",
-//			"jose","12345");
+			//return DriverManager.getConnection("jdbc:postgresql://host-banco/docker",
+                              // "postgres",
+                             // "123456");
+	return DriverManager.getConnection("jdbc:postgresql://localhost:5432/docker",
+		"postgres","06121995");
 
 		} catch (SQLException | ClassNotFoundException e) {
 			System.out.print(e);

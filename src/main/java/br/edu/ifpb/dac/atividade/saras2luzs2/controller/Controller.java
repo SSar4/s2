@@ -32,6 +32,8 @@ public class Controller implements Serializable {
     }
 
     public String SalvarBanda() {
+    	System.out.println(banda);
+    	banda.AddIntegrante(integrante);
         bandaServico.Add(banda);
         this.banda = new Banda();
         return "list";
