@@ -130,7 +130,7 @@ public class IntegrantePersistencia {
 
     public void atualizar(Integrante i) {
 
-        String SQL = "UPDATE FROM integrante SET nome=?, dataDeNascimento=?, cpf=? WHERE id = ?";
+        String SQL = "UPDATE  integrante SET nome=?, dataDeNascimento=?, cpf=? WHERE id = ?";
         con = Conexao.abrirConexao();
         try {
             PreparedStatement stm = con.prepareStatement(SQL);

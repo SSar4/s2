@@ -15,7 +15,6 @@ import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
-
 @Named
 @SessionScoped
 public class ControlerIntegrante implements Serializable {
@@ -25,24 +24,24 @@ public class ControlerIntegrante implements Serializable {
     private String datanasc;
     private String CPF;
     private List<Integrante> listIntegrante;
-    
 
     public ControlerIntegrante() {
         integrante = new Integrante();
         listIntegrante = new ArrayList<>();
         is = new IntegranteServico();
     }
+
     public String buscarCpf() {
-    	listIntegrante = is.localizarintegranteCPF(CPF);
-    	if(listIntegrante.size()==0) {
-    		listIntegrante = new ArrayList<Integrante>();
-    		return null;
-    	}
-    	System.out.println(listIntegrante.get(0)+" s2s2s2s2s22ss22s");
-    	return null;
+        listIntegrante = is.localizarintegranteCPF(CPF);
+        if (listIntegrante.size() == 0) {
+            listIntegrante = new ArrayList<Integrante>();
+            return null;
+        }
+        return null;
     }
-     public String redirect() {
-      
+
+    public String redirect() {
+
         return "integrante/edit";
     }
 
@@ -76,11 +75,9 @@ public class ControlerIntegrante implements Serializable {
     public void setCPF(String CPF) {
         this.CPF = CPF;
     }
-             
+
     public List<Integrante> getIntegrantes() {
-        List<Integrante> r = is.todas();
-        System.err.println("lis in "+r.get(0));
-        return r;
+        return is.todas();
     }
 
     public String remove(int id) {
@@ -90,12 +87,16 @@ public class ControlerIntegrante implements Serializable {
 
     public String edite(Integrante integrante) {
         this.integrante = integrante;
+        this.datanasc = integrante.getDataDeNascimento().toString();
+        this.CPF = integrante.getCpf().formatado();
         return "edit";
     }
-	public List<Integrante> getListIntegrante() {
-		return listIntegrante;
-	}
-	public void setListIntegrante(List<Integrante> listIntegrante) {
-		this.listIntegrante = listIntegrante;
-	}
+
+    public List<Integrante> getListIntegrante() {
+        return listIntegrante;
+    }
+
+    public void setListIntegrante(List<Integrante> listIntegrante) {
+        this.listIntegrante = listIntegrante;
+    }
 }

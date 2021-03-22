@@ -37,7 +37,6 @@ public class BandaPercistencia {
         List<Banda> b = new ArrayList<>();
         try {
             String sql = "SELECT * FROM banda";
-            System.err.println("abri " + con);
             PreparedStatement statement = con.prepareStatement(sql);
             ResultSet resut = statement.executeQuery();
             while (resut.next()) {
@@ -88,7 +87,8 @@ public class BandaPercistencia {
     }
 
     public void atualizar(Banda b) {
-        String SQL = "UPDATE FROM banda  SET localdeorigem=?,nomefantasia=? WHERE id = ?";
+       
+        String SQL = "UPDATE banda  SET localdeorigem=?,nomefantasia=? WHERE id = ?";
         con = Conexao.abrirConexao();
         try {
             PreparedStatement stm = con.prepareStatement(SQL);
@@ -97,7 +97,8 @@ public class BandaPercistencia {
             stm.setInt(3, b.getId());
 
             stm.executeUpdate();
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            System.err.println("eroor at "+e.getMessage());
             
         }
     }

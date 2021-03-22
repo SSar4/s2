@@ -2,6 +2,7 @@ package br.edu.ifpb.dac.atividade.saras2luzs2.repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class Conexao {
 
@@ -15,9 +16,10 @@ public class Conexao {
 			return DriverManager.getConnection("jdbc:postgresql://host-banco/docker",
                                "postgres",
                               "123456");
-		//return DriverManager.getConnection("jdbc:postgresql://localhost:5432/docker","","");
+//		return DriverManager.getConnection("jdbc:postgresql://localhost:5434/docker",
+//			"jose","12345");
 
-		} catch (Exception e) {
+		} catch (SQLException | ClassNotFoundException e) {
 			System.out.print(e);
 			return null;
 		}

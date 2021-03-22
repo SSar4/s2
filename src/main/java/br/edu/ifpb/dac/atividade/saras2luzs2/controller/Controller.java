@@ -23,7 +23,7 @@ public class Controller implements Serializable {
     private Integrante integrante;
     private BandaServico bandaServico;
     private String origem;
-    private List<Banda> band = new ArrayList<>();
+    private List<Banda> bandaSession = new ArrayList<>();
 
     public Controller() {
         this.setBanda(new Banda());
@@ -53,19 +53,24 @@ public class Controller implements Serializable {
 
     public List<Banda> getBandas() {
         //return Collections.EMPTY_LIST;
-        List<Banda> v = bandaServico.lista();
-        System.err.println("ver " + v.get(0));
-        return v;
+       bandaSession = bandaServico.lista();
+        if(bandaSession.isEmpty())
+        return Collections.EMPTY_LIST;
+        else return bandaSession;
     }
-
+public String rediretOrigem(){
+    bandaSession= Collections.EMPTY_LIST;
+    return "banda/buscaOrigem";
+}
     public List<Banda> buscarOrigem(){
-
-        List<Banda> band = bandaServico.localizarLocalDeOrigem(origem);
-        if(band.size() == 0){
-            band = new ArrayList<>();
-            
+        System.err.println("l origem"+origem);
+        bandaSession= bandaServico.localizarLocalDeOrigem(origem);
+        if(bandaSession.isEmpty()){
+            System.err.println("if lista");
+            return Collections.EMPTY_LIST;
         }
-        return band;
+        System.err.println("ejdi"+bandaSession.get(0));
+        return bandaSession;
     }
 
     public Integrante getIntegrante() {
@@ -92,12 +97,21 @@ public class Controller implements Serializable {
         this.origem = origem;
     }
 
-    public List<Banda> getBand() {
-        return band;
+    public List<Banda> getBandaSession() {
+        return bandaSession;
     }
 
-    public void setBand(List<Banda> band) {
-        this.band = band;
+    public void setBandaSession(List<Banda> bandaSession) {
+        this.bandaSession = bandaSession;
     }
+
+    public BandaServico getBandaServico() {
+        return bandaServico;
+    }
+
+    public void setBandaServico(BandaServico bandaServico) {
+        this.bandaServico = bandaServico;
+    }
+     
 
 }

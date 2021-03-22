@@ -10,24 +10,24 @@
         <h1 class="header center orange-text">Listagem de integrantes</h1>
         <h:form>
 
-            <h:dataTable var="int" value="#{controlerIntegrante.integrantes}" class="striped highlight">
+            <h:dataTable var="i" value="#{controlerIntegrante.integrantes}" class="striped highlight">
                 <h:column>
                     <f:facet name="header">Id</f:facet>
-                        #{int.id}
+                        #{i.id}
                 </h:column>
                 <h:column>
                     <f:facet name="header">Nome</f:facet>
-                        #{int.nome}
+                        #{i.nome}
                 </h:column>
                 <h:column>
                     <f:facet name="header">Noscimento</f:facet>
-                        #{int.dataDeNascimento.toString()}
+                        #{i.dataDeNascimento.toString()}
                 </h:column>
                 <h:column>
-                    <h:commandButton value="x" action="#{controlerIntegrante.remove(int.id)}" class="btn"/>
+                    <h:commandButton value="x" action="#{controlerIntegrante.remove(i.id)}" class="btn"/>
                 </h:column>
                 <h:column>
-                    <h:commandButton value="editar" action="#{controlerIntegrante.edite(int)}" class="btn"/>
+                    <h:commandButton value="editar" action="#{controlerIntegrante.edite(i)}" class="btn"/>
                 </h:column>
             </h:dataTable>
         </h:form>

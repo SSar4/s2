@@ -7,14 +7,14 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 template="../template.xhtml">
     <ui:define name="centro">
-        <h1 class="header center orange-text">Buscar pessoa por Local de Origem</h1>
+        <h1 class="header center orange-text">Buscar banda por Local de Origem</h1>
         <h:form>
             <h:outputLabel value="origem"/>
             <h:inputText value="#{controller.origem}"/>
-                <h:commandButton value="Buscar" action="#{controller.buscarOrigem()}" class="btn"/>
+            <h:commandButton value="Buscar" action="#{controller.buscarOrigem()}" class="btn"/>
                
           
-            <h:dataTable var="banda" value="#{controller.band}" class="striped highlight">
+            <h:dataTable var="banda" value="#{controller.bandaSession}" class="striped highlight">
                 <h:column>
                     <f:facet name="header">Id</f:facet>
                     #{banda.id}
@@ -28,10 +28,10 @@
                     #{banda.localDeOrigem}
                 </h:column>
                 <h:column>
-                    <h:commandButton value="x" action="#{controller.remove()}" class="btn"/>
+                    <h:commandButton value="x" action="#{controller.removeBanda(banda.id)}" class="btn"/>
                 </h:column>
                 <h:column>
-                    <h:commandButton value="editar" action="#{controller.edite()}" class="btn"/>
+                    <h:commandButton value="editar" action="#{controller.editar(banda)}" class="btn"/>
                 </h:column>
             </h:dataTable>
         </h:form>
