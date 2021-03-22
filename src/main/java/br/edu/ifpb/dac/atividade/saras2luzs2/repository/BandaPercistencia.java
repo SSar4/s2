@@ -25,7 +25,12 @@ public class BandaPercistencia {
             PreparedStatement stm = con.prepareStatement(SQL);
             stm.setString(1, b.getLocalDeOrigem());
             stm.setString(2, b.getNomeFantasia());
-            stm.executeUpdate();
+            if(stm.executeUpdate()>0){
+                bandaIntegrante(b.getId(),
+                        b.getIntegrantes().get(0).getId(),
+                        con);
+            }
+
         } catch (Exception e) {
             
         }
@@ -125,5 +130,20 @@ public class BandaPercistencia {
         } else {
             return Collections.EMPTY_LIST;
         }
+    }
+
+    private  void bandaIntegrante(int id_banda, int id_integrante,Connection con){
+        String SQL = "INSERT INTO integrante_banda(id_banda,id_integrante VALUES(?,?))";
+        con = Conexao.abrirConexao();
+        try {
+            PreparedStatement stm = con.prepareStatement(SQL);
+            stm.setInt(1, id_banda);
+            stm.setInt(2, id_integrante);
+            stm.executeUpdate();
+        } catch (Exception e) {
+
+        }
+
+
     }
 }
