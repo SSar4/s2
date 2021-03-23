@@ -91,7 +91,6 @@ public class IntegrantePersistencia {
             PreparedStatement statement = con.prepareStatement(sql);
             ResultSet resut = statement.executeQuery();
             while (resut.next()) {
-                System.err.println("resut "+resut.getString(1));
                 b.add(criarIntegrante(resut));
             }
         } catch (SQLException ex) {

@@ -26,14 +26,16 @@ public class Controller implements Serializable {
     private List<Banda> bandaSession = new ArrayList<>();
 
     public Controller() {
-        this.setBanda(new Banda());
-        this.setIntegrante(new Integrante());
+        banda = new  Banda();
+        integrante = new Integrante();
+        
         this.bandaServico = new BandaServico();
     }
 
     public String SalvarBanda() {
-    	System.out.println(banda);
+        integrante.setId(1);
     	banda.AddIntegrante(integrante);
+        System.out.println("BANDA CC"+banda);
         bandaServico.Add(banda);
         this.banda = new Banda();
         return "list";
@@ -68,7 +70,6 @@ public String rediretOrigem(){
         System.err.println("l origem"+origem);
         bandaSession= bandaServico.localizarLocalDeOrigem(origem);
         if(bandaSession.isEmpty()){
-            System.err.println("if lista");
             return Collections.EMPTY_LIST;
         }
         System.err.println("ejdi"+bandaSession.get(0));

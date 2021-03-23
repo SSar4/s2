@@ -15,12 +15,15 @@ public class IntegranteConversor implements Converter {
 
     @Override
     public Object getAsObject(FacesContext facesContext, UIComponent uiComponent, String value) {
+         
         if(value == null){
             return null;
         }
 
         Integrante integrante = this.service.buscarPorId(Integer.parseInt(value));
+       
         return integrante;
+         
 
     }
 

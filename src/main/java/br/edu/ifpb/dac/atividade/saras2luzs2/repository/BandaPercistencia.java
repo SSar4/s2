@@ -15,29 +15,35 @@ public class BandaPercistencia {
     private Connection con;
 
     public BandaPercistencia() {
-      
+
     }
 
     public void addBanda(Banda b) {
-        String SQL = "INSERT INTO banda (localdeorigem,nomefantasia) VALUES (?,?)";
+        b.setId((int) System.currentTimeMillis());
+        String SQL = "INSERT INTO banda (localdeorigem,nomefantasia, id) VALUES (?,?,?)";
         con = Conexao.abrirConexao();
         try {
             PreparedStatement stm = con.prepareStatement(SQL);
+
             stm.setString(1, b.getLocalDeOrigem());
             stm.setString(2, b.getNomeFantasia());
-            if(stm.executeUpdate()>0){
+            stm.setInt(3, b.getId());
+
+            if (stm.executeUpdate() > 0) {
+               
                 bandaIntegrante(b.getId(),
                         b.getIntegrantes().get(0).getId(),
                         con);
             }
 
-        } catch (Exception e) {
-            
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+
         }
     }
 
     public List<Banda> todas() {
-      
+
         con = Conexao.abrirConexao();
         List<Banda> b = new ArrayList<>();
         try {
@@ -92,7 +98,7 @@ public class BandaPercistencia {
     }
 
     public void atualizar(Banda b) {
-       
+
         String SQL = "UPDATE banda  SET localdeorigem=?,nomefantasia=? WHERE id = ?";
         con = Conexao.abrirConexao();
         try {
@@ -103,8 +109,8 @@ public class BandaPercistencia {
 
             stm.executeUpdate();
         } catch (SQLException e) {
-            System.err.println("eroor at "+e.getMessage());
-            
+            System.err.println("eroor at " + e.getMessage());
+
         }
     }
 
@@ -132,18 +138,19 @@ public class BandaPercistencia {
         }
     }
 
-    private  void bandaIntegrante(int id_banda, int id_integrante,Connection con){
-        String SQL = "INSERT INTO integrante_banda(id_banda,id_integrante VALUES(?,?))";
+    private void bandaIntegrante(int id_banda, int id_integrante, Connection con) {
+        String SQL = "INSERT INTO integrante_banda (id_banda,id_integrante) VALUES(?,?)";
         con = Conexao.abrirConexao();
         try {
+            System.err.println("int salve " + id_banda + id_integrante);
             PreparedStatement stm = con.prepareStatement(SQL);
             stm.setInt(1, id_banda);
             stm.setInt(2, id_integrante);
             stm.executeUpdate();
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
 
         }
-
 
     }
 }
