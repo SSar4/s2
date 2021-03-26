@@ -7,7 +7,7 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 template="../template.xhtml">
     <ui:define name="centro">
-        <h2 class="header center orange-text"> Cadastro de integrante </h2>
+        <h3 class="header center teal-text"> Cadastro de integrante </h3>
         <h:form>
             <h:messages layout="list"/>
             <h:outputLabel for="nome" value="Nome" />
@@ -16,7 +16,7 @@
             <h:inputText value="#{controlerIntegrante.datanasc}"></h:inputText>
             <h:outputLabel for="CPF" value="CPF" />
             <h:inputText value="#{controlerIntegrante.CPF}"></h:inputText>
-            <h:commandButton value="adicionar" action="#{controlerIntegrante.salvar()}"/>
+            <h:commandButton class="btn" value="adicionar" action="#{controlerIntegrante.salvar()}"/>
 
         </h:form>
     </ui:define>

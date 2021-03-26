@@ -7,7 +7,7 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core" template="../template.xhtml">
 
     <ui:define name="centro">
-        <h2 class="header center orange-text">Cadastro de Bandas</h2>
+        <h3  class="header center teal-text">Cadastro de Bandas</h3>
         <h:form>
             <h:messages layout="list" />
             <h:outputLabel for="nome" value="Nome" />
@@ -24,10 +24,10 @@
                 <f:selectItems value="#{controlerIntegrante.integrantes}"
                                var="it" itemLabel="#{it.nome}" />
             </h:selectOneMenu>-->
-            <h:commandButton id="comando" styleClass="btn" value="adicionar"
+            <h:commandButton  style="margin-left: 40px; "  id="comando" styleClass="btn" value="adicionar"
                              action="#{controller.SalvarBanda()}" />
 
-            <h:commandLink id="comando-link" value="lista" action="list"
+            <h:commandLink styleClass="btn" style="margin-left: 40px; "  id="comando-link" value="lista" action="list"
                            immediate="true" />
 
         </h:form>

@@ -7,7 +7,7 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 template="../template.xhtml">
     <ui:define name="centro">
-        <h1 class="header center orange-text">Buscar integrante por CPF</h1>
+        <h3 class="header center teal-text">Buscar integrante por CPF</h3>
         <h:form>
             <h:outputLabel value="CPF"/>
             <h:inputText value="#{controlerIntegrante.CPF}"/>
@@ -28,10 +28,10 @@
                     #{integrate.cpf.formatado()}
                 </h:column>
                 <h:column>
-                    <h:commandButton value="x" action="#{controlerIntegrante.remove()}" class="btn"/>
+                    <h:commandButton style="margin-left: 40px;" value="x" action="#{controlerIntegrante.remove()}" class="btn"/>
                 </h:column>
                 <h:column>
-                    <h:commandButton value="editar" action="#{controlerIntegrante.edite()}" class="btn"/>
+                    <h:commandButton style="margin-left: 40px;" value="editar" action="#{controlerIntegrante.edite()}" class="btn"/>
                 </h:column>
             </h:dataTable>
         </h:form>

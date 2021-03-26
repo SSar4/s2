@@ -7,9 +7,9 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 template="../template.xhtml">
     <ui:define name="centro">
-        <h1 class="header center orange-text">Listagem de bandas</h1>
+        <h3 class="header center teal-text">Listagem de bandas</h3>
         <h:form>
-            <h:commandLink value="nova" action="edit.xhtml?faces-redirect=true"/>
+            <h:commandLink class="btn" value="nova" action="edit.xhtml?faces-redirect=true"/>
             <h:dataTable var="banda" value="#{controller.bandas}" class="striped highlight">
                 <h:column>
                     <f:facet name="header">nomeFantasia</f:facet>
